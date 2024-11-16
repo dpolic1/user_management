@@ -1,1 +1,1 @@
-README
+User management example project
