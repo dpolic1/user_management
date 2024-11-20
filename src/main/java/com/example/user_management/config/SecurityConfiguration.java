@@ -39,10 +39,10 @@ public class SecurityConfiguration {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(
             auth -> {
+              auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
               UNAUTHENTICATED_ENDPOINTS.forEach(
                   endpoint -> auth.requestMatchers(endpoint).permitAll());
               ADMIN_ENDPOINTS.forEach(endpoint -> auth.requestMatchers(endpoint).hasRole("ADMIN"));
-
               auth.anyRequest().authenticated();
             })
         .formLogin(
