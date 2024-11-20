@@ -68,6 +68,7 @@ public class SecurityConfiguration {
             HttpMethod.GET.name(),
             HttpMethod.POST.name(),
             HttpMethod.PUT.name(),
+            HttpMethod.OPTIONS.name(),
             HttpMethod.DELETE.name()));
     configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
     configuration.setAllowCredentials(true);
