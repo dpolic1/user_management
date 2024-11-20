@@ -55,6 +55,14 @@ public class UserResourceService {
     return createLoginResponse(newUser);
   }
 
+  public UserLoginResponse registerAdmin(UserRegisterRequest userRegisterRequest) {
+    User newUser = userMapper.toEntity(userRegisterRequest);
+    newUser.setPassword(new BCryptPasswordEncoder().encode(userRegisterRequest.getPassword()));
+    newUser.setRoles(Set.of(Role.ROLE_USER, Role.ROLE_ADMIN));
+    userRepository.save(newUser);
+    return createLoginResponse(newUser);
+  }
+
   private UserLoginResponse createLoginResponse(User user) {
     UserLoginResponse userLoginResponse = new UserLoginResponse();
     userLoginResponse.setJwtToken(jwtTokenService.createJwt(user));

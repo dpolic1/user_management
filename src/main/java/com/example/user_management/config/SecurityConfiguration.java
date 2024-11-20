@@ -26,7 +26,7 @@ public class SecurityConfiguration {
 
   public static final List<String> UNAUTHENTICATED_ENDPOINTS =
       List.of("/users/register", "/users/login");
-  public static final List<String> ADMIN_ENDPOINTS = List.of();
+  public static final List<String> ADMIN_ENDPOINTS = List.of("example/test-admin");
 
   private final JwtTokenFilter jwtFilter;
 
