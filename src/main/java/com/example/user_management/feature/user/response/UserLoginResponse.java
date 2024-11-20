@@ -9,13 +9,5 @@ public class UserLoginResponse {
 
   private String jwtToken;
 
-  private String firstName;
-
-  private String lastName;
-
-  private String username;
-
-  private String email;
-
-  private List<String> roles;
+  private UserResponse user;
 }
