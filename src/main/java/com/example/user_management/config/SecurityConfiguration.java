@@ -32,12 +32,11 @@ public class SecurityConfiguration {
 
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    return http
-            .cors(
-                    httpSecurityCorsConfigurer ->
-                            httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(
+    return http.cors(
+            httpSecurityCorsConfigurer ->
+                httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(
             auth -> {
               auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
               UNAUTHENTICATED_ENDPOINTS.forEach(
