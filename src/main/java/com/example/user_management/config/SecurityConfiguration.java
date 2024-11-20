@@ -32,19 +32,19 @@ public class SecurityConfiguration {
 
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    return http.authorizeHttpRequests(
+    return http
+            .cors(
+                    httpSecurityCorsConfigurer ->
+                            httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(
             auth -> {
               UNAUTHENTICATED_ENDPOINTS.forEach(
                   endpoint -> auth.requestMatchers(endpoint).permitAll());
-
               ADMIN_ENDPOINTS.forEach(endpoint -> auth.requestMatchers(endpoint).hasRole("ADMIN"));
 
               auth.anyRequest().authenticated();
             })
-        .csrf(csrf -> csrf.disable())
-        .cors(
-            httpSecurityCorsConfigurer ->
-                httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
         .formLogin(
             login ->
                 login
