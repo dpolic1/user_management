@@ -63,7 +63,7 @@ public class UserResourceService {
   }
 
   private UserLoginResponse createLoginResponse(User user) {
-    UserLoginResponse userLoginResponse = new UserLoginResponse();
+    UserLoginResponse userLoginResponse = userMapper.toLoginResponse(user);
     userLoginResponse.setJwtToken(jwtTokenService.createJwt(user));
     userLoginResponse.setRoles(user.getRoles().stream().map(Enum::name).toList());
     return userLoginResponse;

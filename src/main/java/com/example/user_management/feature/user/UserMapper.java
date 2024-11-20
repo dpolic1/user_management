@@ -14,6 +14,9 @@ public interface UserMapper {
 
   UserResponse toResponse(User user);
 
+  @Mapping(target = "jwtToken", ignore = true)
+  UserLoginResponse toLoginResponse(User user);
+
   @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
   @InheritConfiguration(name = "toEntity")
   User update(UserUpdateRequest request, @MappingTarget User target);
