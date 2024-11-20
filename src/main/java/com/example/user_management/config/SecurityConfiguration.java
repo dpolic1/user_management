@@ -1,6 +1,6 @@
 package com.example.user_management.config;
 
-import com.example.user_management.feature.jwt_token.JwtTokenFilter;
+import com.example.user_management.jwt_token.JwtTokenFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

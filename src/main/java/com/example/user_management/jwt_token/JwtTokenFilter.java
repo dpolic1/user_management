@@ -1,4 +1,4 @@
-package com.example.user_management.feature.jwt_token;
+package com.example.user_management.jwt_token;
 
 import com.example.user_management.config.SecurityConfiguration;
 import jakarta.servlet.FilterChain;

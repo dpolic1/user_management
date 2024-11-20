@@ -1,6 +1,6 @@
 package com.example.user_management.feature.user;
 
-import com.example.user_management.feature.jwt_token.JwtTokenService;
+import com.example.user_management.jwt_token.JwtTokenService;
 import com.example.user_management.feature.user.request.UserLoginRequest;
 import com.example.user_management.feature.user.request.UserRegisterRequest;
 import com.example.user_management.feature.user.request.UserUpdateRequest;
@@ -12,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.Set;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
