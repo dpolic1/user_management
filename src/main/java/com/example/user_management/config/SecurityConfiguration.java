@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
@@ -25,7 +26,7 @@ import java.util.List;
 public class SecurityConfiguration {
 
   public static final List<String> UNAUTHENTICATED_ENDPOINTS =
-      List.of("/users/register", "/users/login");
+      List.of("/users/register", "/users/login", "/swagger-ui/**", "/v3/api-docs/**");
   public static final List<String> ADMIN_ENDPOINTS = List.of("example/test-admin");
 
   private final JwtTokenFilter jwtFilter;
@@ -61,7 +62,7 @@ public class SecurityConfiguration {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Adjust the allowed origins
+    configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:8080")); // Adjust the allowed origins
     configuration.setAllowedMethods(
         Arrays.asList(
             HttpMethod.GET.name(),
