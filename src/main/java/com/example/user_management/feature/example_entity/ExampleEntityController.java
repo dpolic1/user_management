@@ -2,6 +2,7 @@ package com.example.user_management.feature.example_entity;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,12 @@ public class ExampleEntityController {
   @GetMapping("test-admin")
   public String testAdmin() {
     return "Admin";
+  }
+
+  @PostMapping("create")
+  public ExampleEntity create() {
+    ExampleEntity exampleEntity = new ExampleEntity();
+    exampleEntity.setName("Example");
+    return exampleEntityRepository.save(exampleEntity);
   }
 }
