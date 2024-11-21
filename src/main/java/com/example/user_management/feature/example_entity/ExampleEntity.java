@@ -10,7 +10,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Setter
 @Entity
 @Table(name = "example_entities")
-@EntityListeners(AuditingEntityListener.class)
 public class ExampleEntity extends CreationAudit {
 
   @Id
