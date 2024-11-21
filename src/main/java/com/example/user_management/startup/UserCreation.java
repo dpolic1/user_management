@@ -37,5 +37,6 @@ public class UserCreation {
     }
     System.out.println("User with basic role -> Username: user, Password: user");
     System.out.println("User with admin role -> Username: admin, Password: admin");
+    System.out.println("Swagger available at: http://localhost:8080/swagger-ui/index.html");
   }
 }
