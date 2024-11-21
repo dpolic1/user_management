@@ -73,6 +73,10 @@ public class UserResourceService {
     jwtTokenService.invalidateToken(jwtToken);
   }
 
+  public User getUserInfo(String username) {
+    return findByUsername(username);
+  }
+
   public User update(String username, UserUpdateRequest request) {
     User user = findByUsername(username);
     return userRepository.save(userMapper.update(request, user));

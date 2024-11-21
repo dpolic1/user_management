@@ -33,6 +33,12 @@ public class UserController {
     userResourceService.logout();
   }
 
+  @GetMapping("/user-info")
+  public UserResponse getUserInfo() {
+    return userMapper.toResponse(
+        userResourceService.getUserInfo(auditorConfig.getCurrentAuditor().get()));
+  }
+
   @PutMapping()
   public UserResponse updateUser(@RequestBody UserUpdateRequest request) {
     return userMapper.toResponse(
